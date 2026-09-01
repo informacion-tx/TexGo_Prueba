@@ -210,10 +210,12 @@
             margin-bottom: 15px;
         }
 
-        .footer-social a {
-            color: #ffffff;
-            font-size: 1.3rem;
-            text-decoration: none;
+        .footer-social a img {
+            transition: opacity 0.2s;
+        }
+
+        .footer-social a img:hover {
+            opacity: 0.8;
         }
 
         .footer-info h4 {
@@ -254,6 +256,7 @@
 </head>
 <body>
 
+    <!-- Menú Superior -->
     <nav class="navbar">
         <a href="#" class="logo">TexGo</a>
         <ul class="nav-links">
@@ -265,6 +268,7 @@
         </ul>
     </nav>
 
+    <!-- Ventana Desplegable: Sobre Nosotros -->
     <div class="modal-overlay" id="aboutModal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
             <button class="close-btn" onclick="toggleModal()">&times;</button>
@@ -276,18 +280,20 @@
         </div>
     </div>
 
+    <!-- Contenido Principal (Tela EXPRESSO) -->
     <main class="main-container">
         <h1 class="product-title">EXPRESSO</h1>
 
         <div class="product-grid">
-<img src="Gemini_Generated_Image_2djegj2djegj2dje.jpeg" alt="Tela EXPRESSO" class="product-image">
+            <img src="Gemini_Generated_Image_2djegj2djegj2dje.jpeg" alt="Tela EXPRESSO" class="product-image">
+
             <div class="product-specs">
                 <div class="spec-item">
                     <strong>Composición:</strong>
                     80% POLIESTER 20% SPANDEX
                 </div>
                 <div class="spec-item">
-                    <strong>PESO:</strong>
+                    <strong>PESA:</strong>
                     (260 GM2 +/-)
                 </div>
                 <div class="spec-item">
@@ -298,16 +304,20 @@
         </div>
     </main>
 
+    <!-- Llamado a la acción -->
     <section class="cta-section">
         <p>¿Quieres esta calidad en tu colección?</p>
         <a href="https://wa.me/573245645594" class="btn-contacto" target="_blank">Contacto</a>
     </section>
 
+    <!-- Pie de página -->
     <footer id="contacto" class="footer">
         <div>
             <div class="footer-logo">TexGo</div>
             <div class="footer-social">
-                <a href="https://instagram.com" target="_blank">📷</a>
+                <a href="https://www.instagram.com/texgo.col/" target="_blank">
+                    <img src="image-Photoroom.png" alt="Instagram" style="width: 28px; height: 28px; vertical-align: middle;">
+                </a>
             </div>
         </div>
 
