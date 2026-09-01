@@ -58,7 +58,7 @@
             color: #000;
         }
 
-        /* Ventana Desplegable (Modal) para Sobre Nosotros */
+        /* Ventana Desplegable (Modal) General */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -100,7 +100,7 @@
             color: #2B3240;
         }
 
-        /* Estilos específicos para el diseño de Sobre Nosotros */
+        /* Estilos: Sobre Nosotros */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -151,6 +151,225 @@
             font-weight: 300;
             margin-right: 8px;
             color: #2B3240;
+        }
+
+        /* Estilos: Fortalezas */
+        .fortalezas-container {
+            text-align: left;
+        }
+
+        .fortalezas-subtitle {
+            font-style: italic;
+            color: #7A7571;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .fortalezas-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #2B3240;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .fortalezas-card {
+            background-color: #362D2A;
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .fortalezas-card-title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            font-style: italic;
+            color: #FAF7F2;
+            margin-bottom: 15px;
+        }
+
+        .fortalezas-divider {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 25px;
+            width: 50%;
+        }
+
+        .fortalezas-text {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #E0E0E0;
+        }
+
+        .fortalezas-text strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Estilos: Propuesta Comercial */
+        .propuesta-header {
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        .propuesta-subtitle {
+            font-style: italic;
+            color: #7A7571;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .propuesta-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #2B3240;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            max-width: 500px;
+            margin-left: auto;
+        }
+
+        .venn-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            height: 380px;
+            margin: 0 auto 40px;
+        }
+
+        .venn-circle {
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+            opacity: 0.85;
+            mix-blend-mode: multiply;
+        }
+
+        .circle-propuesta {
+            background-color: #A09B93;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .circle-producto {
+            background-color: #D9BEB0;
+            bottom: 40px;
+            left: 23%;
+        }
+
+        .circle-precio {
+            background-color: #B5A89E;
+            bottom: 40px;
+            right: 23%;
+        }
+
+        .venn-logo-center {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .venn-tag {
+            position: absolute;
+            font-size: 0.85rem;
+            color: #666;
+            max-width: 200px;
+            line-height: 1.3;
+        }
+
+        .tag-propuesta {
+            top: 30px;
+            right: 30px;
+            text-align: left;
+            border-left: 1px solid #ccc;
+            padding-left: 10px;
+        }
+
+        .tag-producto {
+            bottom: 80px;
+            left: 0;
+            text-align: right;
+            border-right: 1px solid #ccc;
+            padding-right: 10px;
+        }
+
+        .tag-precio {
+            bottom: 30px;
+            right: 0;
+            text-align: left;
+            border-left: 1px solid #ccc;
+            padding-left: 10px;
+        }
+
+        .propuesta-footer-text {
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #383E4B;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Estilos: Innovación */
+        .innovacion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .innovacion-subtitle {
+            font-style: italic;
+            color: #7A7571;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .innovacion-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2B3240;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            max-width: 500px;
+        }
+
+        .innovacion-body {
+            max-width: 580px;
+            margin-left: auto;
+            text-align: right;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #383E4B;
+        }
+
+        .innovacion-body strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #2B3240;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         /* Contenido Principal (Tela EXPRESSO) */
@@ -291,7 +510,13 @@
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .product-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 20px; }
-            .about-title { font-size: 2rem; }
+            .propuesta-header { text-align: left; }
+            .propuesta-title { margin-left: 0; font-size: 1.8rem; }
+            .venn-container { height: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+            .venn-circle { position: relative; top: auto; left: auto; right: auto; bottom: auto; transform: none; }
+            .venn-tag { position: relative; top: auto; left: auto; right: auto; bottom: auto; text-align: center; border: none; padding: 0; }
+            .innovacion-body { margin-left: 0; text-align: left; }
+            .innovacion-title { font-size: 1.8rem; }
             .modal-content { padding: 30px 20px; }
             .footer { flex-direction: column; text-align: left; }
         }
@@ -303,10 +528,10 @@
     <nav class="navbar">
         <a href="#" class="logo">TexGo</a>
         <ul class="nav-links">
-            <li><a onclick="toggleModal()">Sobre nosotros</a></li>
-            <li><a href="#">Fortalezas</a></li>
-            <li><a href="#">Propuesta comercial</a></li>
-            <li><a href="#">Innovación</a></li>
+            <li><a onclick="toggleAboutModal()">Sobre nosotros</a></li>
+            <li><a onclick="toggleFortalezasModal()">Fortalezas</a></li>
+            <li><a onclick="togglePropuestaModal()">Propuesta comercial</a></li>
+            <li><a onclick="toggleInnovacionModal()">Innovación</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
@@ -314,7 +539,7 @@
     <!-- Ventana Desplegable: Sobre Nosotros -->
     <div class="modal-overlay" id="aboutModal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
-            <button class="close-btn" onclick="toggleModal()">&times;</button>
+            <button class="close-btn" onclick="toggleAboutModal()">&times;</button>
             <div class="about-grid">
                 <div class="about-left">
                     <span class="about-subtitle">Sobre nosotros</span>
@@ -332,6 +557,77 @@
                     <p>Trabajamos exclusivamente con clientes mayoristas, brindando soluciones alineadas con sus necesidades reales.</p>
 
                     <p>Contamos con un equipo comercial dinámico y moderno, que aporta valor a cada operación mediante el uso de tecnología, eficiencia y un portafolio de productos que se adapta ágilmente a las tendencias de la moda femenina.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Desplegable: Fortalezas -->
+    <div class="modal-overlay" id="fortalezasModal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="toggleFortalezasModal()">&times;</button>
+            <div class="fortalezas-container">
+                <span class="fortalezas-subtitle">Fortalezas</span>
+                <h2 class="fortalezas-title">Somos especialistas en identificar tendencias</h2>
+                
+                <div class="fortalezas-card">
+                    <h3 class="fortalezas-card-title">Expertos en moda femenina</h3>
+                    <hr class="fortalezas-divider">
+                    <p class="fortalezas-text">
+                        Ofrecemos una propuesta textil cuidadosamente seleccionada, enfocada en moda femenina y pensada especialmente para el mercado colombiano.<br><br>
+                        <strong>Diseñamos y elegimos las calidades necesarias para que nuestros clientes mayoristas puedan responder con solidez a las exigencias estéticas y comerciales de cada temporada.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Desplegable: Propuesta Comercial -->
+    <div class="modal-overlay" id="propuestaModal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="togglePropuestaModal()">&times;</button>
+            
+            <div class="propuesta-header">
+                <span class="propuesta-subtitle">Propuesta comercial</span>
+                <h2 class="propuesta-title">Nuestra triple P como ventaja competitiva</h2>
+            </div>
+
+            <!-- Diagrama Triple P -->
+            <div class="venn-container">
+                <div class="venn-circle circle-propuesta">Propuesta</div>
+                <div class="venn-tag tag-propuesta">Una curaduría única, enfocada en lo que realmente vende.</div>
+
+                <div class="venn-circle circle-producto">Producto</div>
+                <div class="venn-tag tag-producto">Telas actualizadas, adaptadas a lo que pide el mercado</div>
+
+                <div class="venn-circle circle-precio">Precio</div>
+                <div class="venn-tag tag-precio">Condiciones comerciales competitivas y transparentes</div>
+
+                <div class="venn-logo-center">TG</div>
+            </div>
+
+            <p class="propuesta-footer-text">
+                En un mercado tan competitivo como el textil, destacamos por <strong>nuestra eficiencia operativa</strong>, lo que nos permite optimizar recursos y ofrecer un <strong>precio highly competitivo</strong> sin comprometer la calidad ni la estética de nuestros productos.
+            </p>
+        </div>
+    </div>
+
+    <!-- Ventana Desplegable: Innovación -->
+    <div class="modal-overlay" id="innovacionModal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="toggleInnovacionModal()">&times;</button>
+            
+            <div class="innovacion-container">
+                <div>
+                    <span class="innovacion-subtitle">Futuro</span>
+                    <h2 class="innovacion-title">Innovación como diferencial</h2>
+                </div>
+
+                <div class="innovacion-body">
+                    <strong>La innovación no es un accesorio: es parte de cómo concebimos el futuro del negocio textil.</strong>
+                    <p>
+                        Implementamos herramientas de inteligencia artificial y tecnología 3D para visualizar el potencial de cada textil y potenciar la presencia online de nuestros clientes, ofreciendo una experiencia digital cercana al producto real, mejoramos la interacción del comprador y elevamos la percepción de valor del producto.
+                    </p>
                 </div>
             </div>
         </div>
@@ -391,14 +687,25 @@
     </div>
 
     <script>
-        function toggleModal() {
-            const modal = document.getElementById('aboutModal');
-            modal.classList.toggle('active');
+        function toggleAboutModal() {
+            document.getElementById('aboutModal').classList.toggle('active');
+        }
+
+        function toggleFortalezasModal() {
+            document.getElementById('fortalezasModal').classList.toggle('active');
+        }
+
+        function togglePropuestaModal() {
+            document.getElementById('propuestaModal').classList.toggle('active');
+        }
+
+        function toggleInnovacionModal() {
+            document.getElementById('innovacionModal').classList.toggle('active');
         }
 
         function closeModalOnOutsideClick(event) {
             if (event.target.classList.contains('modal-overlay')) {
-                toggleModal();
+                event.target.classList.remove('active');
             }
         }
     </script>
