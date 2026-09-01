@@ -79,18 +79,20 @@
 
         .modal-content {
             background: #FAF7F2;
-            padding: 40px 30px;
-            max-width: 600px;
+            padding: 50px 40px;
+            max-width: 900px;
             width: 100%;
             border-radius: 8px;
             position: relative;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 25px;
             font-size: 1.8rem;
             background: none;
             border: none;
@@ -98,19 +100,57 @@
             color: #2B3240;
         }
 
-        .modal-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #2B3240;
-            text-align: center;
+        /* Estilos específicos para el diseño de Sobre Nosotros */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+            text-align: left;
+            margin-top: 10px;
         }
 
-        .modal-body p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #4A4643;
+        .about-subtitle {
+            font-style: italic;
+            color: #7A7571;
+            font-size: 1.2rem;
+            display: block;
             margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2B3240;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .about-right p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #383E4B;
+            margin-bottom: 18px;
+        }
+
+        .pilares-list {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .pilares-list li {
+            font-weight: 700;
+            color: #2B3240;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .pilares-list li span {
+            font-weight: 300;
+            margin-right: 8px;
+            color: #2B3240;
         }
 
         /* Contenido Principal (Tela EXPRESSO) */
@@ -250,6 +290,9 @@
             .navbar { flex-direction: column; gap: 15px; padding: 15px 5%; }
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .product-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 20px; }
+            .about-title { font-size: 2rem; }
+            .modal-content { padding: 30px 20px; }
             .footer { flex-direction: column; text-align: left; }
         }
     </style>
@@ -272,10 +315,24 @@
     <div class="modal-overlay" id="aboutModal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
             <button class="close-btn" onclick="toggleModal()">&times;</button>
-            <h2 class="modal-title">Sobre nosotros</h2>
-            <div class="modal-body">
-                <p>En TexGo, nos apasiona ofrecer textiles de alta calidad para la industria de la confección. Nos especializamos en telas sintéticas innovadoras y duraderas, diseñadas para satisfacer las demandas más exigentes de nuestros clientes.</p>
-                <p>Con años de experiencia en el mercado, nuestro compromiso con la excelencia nos lleva a buscar continuamente las mejores fibras y procesos de producción, asegurando que cada metro de tela cumpla con los más altos estándares.</p>
+            <div class="about-grid">
+                <div class="about-left">
+                    <span class="about-subtitle">Sobre nosotros</span>
+                    <h2 class="about-title">Expertos en importación textil</h2>
+                </div>
+                <div class="about-right">
+                    <p>En <strong>TexGo</strong> conectamos el mundo textil con el mercado colombiano a través de una propuesta construida sobre tres pilares:</p>
+                    
+                    <ul class="pilares-list">
+                        <li><span>|</span> Precio competitivo</li>
+                        <li><span>|</span> Calidad comprobada</li>
+                        <li><span>|</span> Lectura precisa de tendencias</li>
+                    </ul>
+
+                    <p>Trabajamos exclusivamente con clientes mayoristas, brindando soluciones alineadas con sus necesidades reales.</p>
+
+                    <p>Contamos con un equipo comercial dinámico y moderno, que aporta valor a cada operación mediante el uso de tecnología, eficiencia y un portafolio de productos que se adapta ágilmente a las tendencias de la moda femenina.</p>
+                </div>
             </div>
         </div>
     </div>
