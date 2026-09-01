@@ -12,11 +12,6 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
-        html {
-            /* Desplazamiento suave al hacer clic en los enlaces del menú */
-            scroll-behavior: smooth;
-        }
-
         body {
             background-color: #FAF7F2;
             color: #2C2825;
@@ -32,11 +27,9 @@
             align-items: center;
             padding: 25px 5%;
             background-color: #FAF7F2;
-            position: fixed; /* Mantiene la barra de navegación visible */
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .logo {
@@ -57,6 +50,7 @@
             text-decoration: none;
             color: #4A4643;
             font-size: 0.95rem;
+            cursor: pointer;
             transition: color 0.2s;
         }
 
@@ -64,47 +58,69 @@
             color: #000;
         }
 
-        /* Contenedor Principal (con margen superior para la navbar fija) */
-        .main-container {
-            max-width: 1000px;
-            margin: 100px auto 0; /* Margen superior de 100px */
-            padding: 20px 20px 60px;
+        /* Ventana Desplegable (Modal) para Sobre Nosotros */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
-        /* Estilo para las secciones generales */
-        .content-section {
-            padding-top: 60px; /* Padding superior para que el título no quede debajo de la navbar fija al navegar */
-            padding-bottom: 60px;
+        .modal-overlay.active {
+            display: flex;
         }
 
-        /* Sección Sobre nosotros */
-        .sobre-nosotros-section {
-            background-color: #FAF7F2;
+        .modal-content {
+            background: #FAF7F2;
+            padding: 40px 30px;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
             color: #2B3240;
         }
 
-        .sobre-nosotros-content {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: justify;
-        }
-
-        .sobre-nosotros-content p {
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            color: #2B3240;
+            text-align: center;
         }
 
-        /* Sección Producto */
+        .modal-body p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4A4643;
+            margin-bottom: 15px;
+        }
+
+        /* Contenido Principal (Tela EXPRESSO) */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+            width: 100%;
+        }
+
         .product-title {
             text-align: center;
             font-size: 2.2rem;
@@ -147,7 +163,7 @@
             margin-bottom: 2px;
         }
 
-        /* Sección Call to Action */
+        /* Llamado a la acción */
         .cta-section {
             text-align: center;
             padding: 60px 20px;
@@ -228,28 +244,20 @@
             color: #666;
         }
 
-        /* Adaptación para Celulares */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-                position: relative; /* Quitar fixed en celular */
-                padding: 15px 5%;
-            }
-            .nav-links { gap: 15px; }
+            .navbar { flex-direction: column; gap: 15px; padding: 15px 5%; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .product-grid { grid-template-columns: 1fr; }
-            .main-container { margin-top: 0; }
             .footer { flex-direction: column; text-align: left; }
         }
     </style>
 </head>
-<body id="inicio">
+<body>
 
-    <!-- Menú Superior -->
     <nav class="navbar">
-        <a href="#inicio" class="logo">TexGo</a>
+        <a href="#" class="logo">TexGo</a>
         <ul class="nav-links">
-            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a onclick="toggleModal()">Sobre nosotros</a></li>
             <li><a href="#">Fortalezas</a></li>
             <li><a href="#">Propuesta comercial</a></li>
             <li><a href="#">Innovación</a></li>
@@ -257,52 +265,45 @@
         </ul>
     </nav>
 
-    <!-- Contenido Principal -->
-    <main class="main-container">
-
-        <!-- Sección Sobre nosotros (oculta por defecto, se muestra al hacer clic) -->
-        <section id="sobre-nosotros" class="content-section sobre-nosotros-section">
-            <h2 class="section-title">Sobre nosotros</h2>
-            <div class="sobre-nosotros-content">
+    <div class="modal-overlay" id="aboutModal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <button class="close-btn" onclick="toggleModal()">&times;</button>
+            <h2 class="modal-title">Sobre nosotros</h2>
+            <div class="modal-body">
                 <p>En TexGo, nos apasiona ofrecer textiles de alta calidad para la industria de la confección. Nos especializamos en telas sintéticas innovadoras y duraderas, diseñadas para satisfacer las demandas más exigentes de nuestros clientes.</p>
-                <p>Con años de experiencia en el mercado, nuestro compromiso con la excelencia nos lleva a buscar continuamente las mejores fibras y procesos de producción, asegurando que cada metro de tela cumpla con los más altos estándares de calidad y rendimiento.</p>
-                <p>Nuestra misión es ser el socio textil de confianza para las marcas de moda y confección, ofreciendo no solo productos excepcionales, sino también un servicio al cliente personalizado y asesoramiento experto en cada etapa del proceso.</p>
+                <p>Con años de experiencia en el mercado, nuestro compromiso con la excelencia nos lleva a buscar continuamente las mejores fibras y procesos de producción, asegurando que cada metro de tela cumpla con los más altos estándares.</p>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Sección de Producto (sección principal) -->
-        <section id="producto" class="content-section">
-            <h1 class="product-title">EXPRESSO</h1>
+    <main class="main-container">
+        <h1 class="product-title">EXPRESSO</h1>
 
-            <div class="product-grid">
-                <!-- Reemplaza src por el nombre del archivo de imagen que subiste a GitHub -->
-                <img src="image_6.png" alt="Tela EXPRESSO" class="product-image">
+        <div class="product-grid">
+            <img src="image_6.png" alt="Tela EXPRESSO" class="product-image">
 
-                <div class="product-specs">
-                    <div class="spec-item">
-                        <strong>Composición:</strong>
-                        80% POLIESTER 20% SPANDEX
-                    </div>
-                    <div class="spec-item">
-                        <strong>PESA:</strong>
-                        (260 GM2 +/-)
-                    </div>
-                    <div class="spec-item">
-                        <strong>EL ANCHO ES DE:</strong>
-                        (148 CM +/-)
-                    </div>
+            <div class="product-specs">
+                <div class="spec-item">
+                    <strong>Composición:</strong>
+                    80% POLIESTER 20% SPANDEX
+                </div>
+                <div class="spec-item">
+                    <strong>PESO:</strong>
+                    (260 GM2 +/-)
+                </div>
+                <div class="spec-item">
+                    <strong>EL ANCHO ES DE:</strong>
+                    (148 CM +/-)
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Llamado a la acción -->
     <section class="cta-section">
         <p>¿Quieres esta calidad en tu colección?</p>
         <a href="https://wa.me/573245645594" class="btn-contacto" target="_blank">Contacto</a>
     </section>
 
-    <!-- Pie de página -->
     <footer id="contacto" class="footer">
         <div>
             <div class="footer-logo">TexGo</div>
@@ -322,6 +323,19 @@
     <div class="copyright">
         Copyright © 2026. Todos los derechos reservados
     </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('aboutModal');
+            modal.classList.toggle('active');
+        }
+
+        function closeModalOnOutsideClick(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                toggleModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
